@@ -1,0 +1,31 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "name": {
+      "value": "smvllc-use2-nonprod-rt-app-ext-001"
+    },
+    "location": {
+      "value": "eastus2"
+    },
+    "routes": {
+      "value": [
+        {
+          "name": "DEFAULT_FIREWALL",
+          "properties": {
+            "addressPrefix": "0.0.0.0/0",
+            "nextHopType": "VirtualAppliance",
+            "nextHopIpAddress": "10.20.255.4"
+          }
+        }
+      ]
+    },
+    "tags": {
+      "value": {
+        "Domain": "Infrastructure",
+        "Domain-Owner": "ravi.vishnubhotla2@gmail.com",
+        "LifeCycle": "Non-Prod"
+        }
+    }
+  }
+}

@@ -1,0 +1,417 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "additionalVirtualNetworks": {
+      "value": [
+        {
+          "addressPrefixes": [
+            "10.251.0.0/18"
+          ],
+          "location": "eastus2",
+          "name": "smvllc-use2-nonprod-vnet-core-001",
+          "resourceGroupLockEnabled": false,
+          "resourceGroupName": "smvllc-use2-nonprod-vnet-rgp-001",
+          "subnets": [
+            {
+              "addressPrefix": "10.251.0.0/24",
+              "name": "smvllc-use2-nonprod-snet-app-int-001",
+              "networkSecurityGroup": {
+                "location": "eastus2",
+                "name": "smvllc-use2-nonprod-nsg-app-int-001",
+                "securityRules": [
+                  {
+                    "name": "AllowVnetInBound",
+                    "properties": {
+                      "access": "Allow",
+                      "description": "Allow inbound traffic from all VMs in VNET",
+                      "destinationAddressPrefix": "VirtualNetwork",
+                      "destinationPortRange": "*",
+                      "direction": "Inbound",
+                      "priority": 65000,
+                      "protocol": "*",
+                      "sourceAddressPrefix": "VirtualNetwork",
+                      "sourcePortRange": "*"
+                    }
+                  },
+                  {
+                    "name": "AllowAzureLoadBalancerInBound",
+                    "properties": {
+                      "access": "Allow",
+                      "description": "Allow inbound traffic from azure load balancer",
+                      "destinationAddressPrefix": "*",
+                      "destinationPortRange": "*",
+                      "direction": "Inbound",
+                      "priority": 65001,
+                      "protocol": "*",
+                      "sourceAddressPrefix": "AzureLoadBalancer",
+                      "sourcePortRange": "*"
+                    }
+                  },
+                  {
+                    "name": "DenyAllInBound",
+                    "properties": {
+                      "access": "Deny",
+                      "description": "Deny all inbound traffic",
+                      "destinationAddressPrefix": "*",
+                      "destinationPortRange": "*",
+                      "direction": "Inbound",
+                      "priority": 65500,
+                      "protocol": "*",
+                      "sourceAddressPrefix": "*",
+                      "sourcePortRange": "*"
+                    }
+                  },
+                  {
+                    "name": "AllowVnetOutBound",
+                    "properties": {
+                      "access": "Allow",
+                      "description": "Allow outbound traffic from all VMs to all VMs in VNET",
+                      "destinationAddressPrefix": "VirtualNetwork",
+                      "destinationPortRange": "*",
+                      "direction": "Outbound",
+                      "priority": 65000,
+                      "protocol": "*",
+                      "sourceAddressPrefix": "VirtualNetwork",
+                      "sourcePortRange": "*"
+                    }
+                  },
+                  {
+                    "name": "AllowInternetOutBound",
+                    "properties": {
+                      "access": "Allow",
+                      "description": "Allow outbound traffic from all VMs to Internet",
+                      "destinationAddressPrefix": "Internet",
+                      "destinationPortRange": "*",
+                      "direction": "Outbound",
+                      "priority": 65001,
+                      "protocol": "*",
+                      "sourceAddressPrefix": "*",
+                      "sourcePortRange": "*"
+                    }
+                  },
+                  {
+                    "name": "DenyAllOutBound",
+                    "properties": {
+                      "access": "Deny",
+                      "description": "Deny all outbound traffic",
+                      "destinationAddressPrefix": "*",
+                      "destinationPortRange": "*",
+                      "direction": "Outbound",
+                      "priority": 65500,
+                      "protocol": "*",
+                      "sourceAddressPrefix": "*",
+                      "sourcePortRange": "*"
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "addressPrefix": "10.251.1.0/24",
+              "name": "smvllc-use2-nonprod-snet-app-ext-001",
+              "networkSecurityGroup": {
+                "location": "eastus2",
+                "name": "smvllc-use2-nonprod-nsg-app-ext-001",
+                "securityRules": [
+                  {
+                    "name": "AllowVnetInBound",
+                    "properties": {
+                      "access": "Allow",
+                      "description": "Allow inbound traffic from all VMs in VNET",
+                      "destinationAddressPrefix": "VirtualNetwork",
+                      "destinationPortRange": "*",
+                      "direction": "Inbound",
+                      "priority": 65000,
+                      "protocol": "*",
+                      "sourceAddressPrefix": "VirtualNetwork",
+                      "sourcePortRange": "*"
+                    }
+                  },
+                  {
+                    "name": "AllowAzureLoadBalancerInBound",
+                    "properties": {
+                      "access": "Allow",
+                      "description": "Allow inbound traffic from azure load balancer",
+                      "destinationAddressPrefix": "*",
+                      "destinationPortRange": "*",
+                      "direction": "Inbound",
+                      "priority": 65001,
+                      "protocol": "*",
+                      "sourceAddressPrefix": "AzureLoadBalancer",
+                      "sourcePortRange": "*"
+                    }
+                  },
+                  {
+                    "name": "DenyAllInBound",
+                    "properties": {
+                      "access": "Deny",
+                      "description": "Deny all inbound traffic",
+                      "destinationAddressPrefix": "*",
+                      "destinationPortRange": "*",
+                      "direction": "Inbound",
+                      "priority": 65500,
+                      "protocol": "*",
+                      "sourceAddressPrefix": "*",
+                      "sourcePortRange": "*"
+                    }
+                  },
+                  {
+                    "name": "AllowVnetOutBound",
+                    "properties": {
+                      "access": "Allow",
+                      "description": "Allow outbound traffic from all VMs to all VMs in VNET",
+                      "destinationAddressPrefix": "VirtualNetwork",
+                      "destinationPortRange": "*",
+                      "direction": "Outbound",
+                      "priority": 65000,
+                      "protocol": "*",
+                      "sourceAddressPrefix": "VirtualNetwork",
+                      "sourcePortRange": "*"
+                    }
+                  },
+                  {
+                    "name": "AllowInternetOutBound",
+                    "properties": {
+                      "access": "Allow",
+                      "description": "Allow outbound traffic from all VMs to Internet",
+                      "destinationAddressPrefix": "Internet",
+                      "destinationPortRange": "*",
+                      "direction": "Outbound",
+                      "priority": 65001,
+                      "protocol": "*",
+                      "sourceAddressPrefix": "*",
+                      "sourcePortRange": "*"
+                    }
+                  },
+                  {
+                    "name": "DenyAllOutBound",
+                    "properties": {
+                      "access": "Deny",
+                      "description": "Deny all outbound traffic",
+                      "destinationAddressPrefix": "*",
+                      "destinationPortRange": "*",
+                      "direction": "Outbound",
+                      "priority": 65500,
+                      "protocol": "*",
+                      "sourceAddressPrefix": "*",
+                      "sourcePortRange": "*"
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "addressPrefix": "10.251.1.0/18",
+              "name": "smvllc-use2-nonprod-snet-db-001",
+              "networkSecurityGroup": {
+                "location": "eastus2",
+                "name": "smvllc-use2-nonprod-nsg-db-001",
+                "securityRules": [
+                  {
+                    "name": "AllowVnetInBound",
+                    "properties": {
+                      "access": "Allow",
+                      "description": "Allow inbound traffic from all VMs in VNET",
+                      "destinationAddressPrefix": "VirtualNetwork",
+                      "destinationPortRange": "*",
+                      "direction": "Inbound",
+                      "priority": 65000,
+                      "protocol": "*",
+                      "sourceAddressPrefix": "VirtualNetwork",
+                      "sourcePortRange": "*"
+                    }
+                  },
+                  {
+                    "name": "AllowAzureLoadBalancerInBound",
+                    "properties": {
+                      "access": "Allow",
+                      "description": "Allow inbound traffic from azure load balancer",
+                      "destinationAddressPrefix": "*",
+                      "destinationPortRange": "*",
+                      "direction": "Inbound",
+                      "priority": 65001,
+                      "protocol": "*",
+                      "sourceAddressPrefix": "AzureLoadBalancer",
+                      "sourcePortRange": "*"
+                    }
+                  },
+                  {
+                    "name": "DenyAllInBound",
+                    "properties": {
+                      "access": "Deny",
+                      "description": "Deny all inbound traffic",
+                      "destinationAddressPrefix": "*",
+                      "destinationPortRange": "*",
+                      "direction": "Inbound",
+                      "priority": 65500,
+                      "protocol": "*",
+                      "sourceAddressPrefix": "*",
+                      "sourcePortRange": "*"
+                    }
+                  },
+                  {
+                    "name": "AllowVnetOutBound",
+                    "properties": {
+                      "access": "Allow",
+                      "description": "Allow outbound traffic from all VMs to all VMs in VNET",
+                      "destinationAddressPrefix": "VirtualNetwork",
+                      "destinationPortRange": "*",
+                      "direction": "Outbound",
+                      "priority": 65000,
+                      "protocol": "*",
+                      "sourceAddressPrefix": "VirtualNetwork",
+                      "sourcePortRange": "*"
+                    }
+                  },
+                  {
+                    "name": "AllowInternetOutBound",
+                    "properties": {
+                      "access": "Allow",
+                      "description": "Allow outbound traffic from all VMs to Internet",
+                      "destinationAddressPrefix": "Internet",
+                      "destinationPortRange": "*",
+                      "direction": "Outbound",
+                      "priority": 65001,
+                      "protocol": "*",
+                      "sourceAddressPrefix": "*",
+                      "sourcePortRange": "*"
+                    }
+                  },
+                  {
+                    "name": "DenyAllOutBound",
+                    "properties": {
+                      "access": "Deny",
+                      "description": "Deny all outbound traffic",
+                      "destinationAddressPrefix": "*",
+                      "destinationPortRange": "*",
+                      "direction": "Outbound",
+                      "priority": 65500,
+                      "protocol": "*",
+                      "sourceAddressPrefix": "*",
+                      "sourcePortRange": "*"
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "peerAllVirtualNetworks": {
+      "value": true
+    },
+    "resourceProviders": {
+      "value": {}
+    },
+    "routeTables": {
+      "value": [
+        {
+          "location": "eastus2",
+          "name": "smvllc-use2-nonprod-rt-app-int-001",
+          "routes": [
+            {
+              "name": "DEFAULT_FIREWALL",
+              "properties": {
+                "addressPrefix": "0.0.0.0/0",
+                "nextHopType": "VirtualAppliance",
+                "nextHopIpAddress": "10.20.255.4"
+
+              }
+            }
+          ]
+        },
+        {
+          "location": "eastus2",
+          "name": "smvllc-use2-nonprod-rt-app-ext-001",
+          "routes": [
+            {
+              "name": "DEFAULT_FIREWALL",
+              "properties": {
+                "addressPrefix": "0.0.0.0/0",
+                "nextHopType": "VirtualAppliance",
+                "nextHopIpAddress": "10.20.255.4"
+
+              }
+            }
+          ]
+        },
+        {
+          "location": "eastus2",
+          "name": "smvllc-use2-nonprod-rt-db-001",
+          "routes": [
+            {
+              "name": "DEFAULT_FIREWALL",
+              "properties": {
+                "addressPrefix": "0.0.0.0/0",
+                "nextHopType": "VirtualAppliance",
+                "nextHopIpAddress": "10.20.255.4"
+
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "routeTablesResourceGroupName": {
+      "value": "smvllc-use2-nonprod-vnet-core-001"
+    },
+    "subscriptionAliasEnabled": {
+      "value": false
+    },
+    "subscriptionAliasName": {
+      "value": "<subscriptionAliasName>"
+    },
+    "subscriptionBillingScope": {
+      "value": "<subscriptionBillingScope>"
+    },
+    "subscriptionDisplayName": {
+      "value": "<subscriptionDisplayName>"
+    },
+    "subscriptionManagementGroupAssociationEnabled": {
+      "value": true
+    },
+    "subscriptionManagementGroupId": {
+      "value": "bicep-lz-vending-automation-child"
+    },
+    "subscriptionTags": {
+      "value": {
+        "namePrefix": "<namePrefix>",
+        "serviceShort": "<serviceShort>"
+      }
+    },
+    "subscriptionWorkload": {
+      "value": "Production"
+    },
+    "virtualNetworkAddressSpace": {
+      "value": [
+        "10.110.0.0/16"
+      ]
+    },
+    "virtualNetworkEnabled": {
+      "value": true
+    },
+    "virtualNetworkLocation": {
+      "value": "<virtualNetworkLocation>"
+    },
+    "virtualNetworkName": {
+      "value": "<virtualNetworkName>"
+    },
+    "virtualNetworkResourceGroupLockEnabled": {
+      "value": false
+    },
+    "virtualNetworkResourceGroupName": {
+      "value": "<virtualNetworkResourceGroupName>"
+    },
+    "virtualNetworkSubnets": {
+      "value": [
+        {
+          "addressPrefix": "10.110.1.0/24",
+          "name": "app-subnet",
+          "routeTableName": "<routeTableName>"
+        }
+      ]
+    }
+  }
+}

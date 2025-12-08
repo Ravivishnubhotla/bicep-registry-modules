@@ -1,0 +1,124 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "resourceProviders": {
+      "value":
+        {
+          "Microsoft.ADHybridHealthService" : "register",
+          "Microsoft.AVS" : "register",
+          "Microsoft.Advisor" : "register",
+          "Microsoft.ApiManagement" : "register",
+          "Microsoft.AppConfiguration" : "register",
+          "Microsoft.AppPlatform" : "register",
+          "Microsoft.Authorization" : "register",
+          "Microsoft.Automation" : "register",
+          "Microsoft.Billing" : "register",
+          "Microsoft.Blueprint" : "register",
+          "Microsoft.BotService" : "register",
+          "Microsoft.Cache" : "register",
+          "Microsoft.Cdn" : "register",
+          "Microsoft.ChangeSafety" : "register",
+          "Microsoft.ClassicSubscription" : "register",
+          "Microsoft.CognitiveServices" : "register",
+          "Microsoft.Commerce" : "register",
+          "Microsoft.Compute" : "register",
+          "Microsoft.Consumption" : "register",
+          "Microsoft.ContainerInstance" : "register",
+          "Microsoft.ContainerRegistry" : "register",
+          "Microsoft.ContainerService" : "register",
+          "Microsoft.CostManagement" : "register",
+          "Microsoft.CustomProviders" : "register",
+          "Microsoft.DBforMariaDB" : "register",
+          "Microsoft.DBforMySQL" : "register",
+          "Microsoft.DBforPostgreSQL" : "register",
+          "Microsoft.DataFactory" : "register",
+          "Microsoft.DataLakeAnalytics" : "register",
+          "Microsoft.DataLakeStore" : "register",
+          "Microsoft.DataMigration" : "register",
+          "Microsoft.DataProtection" : "register",
+          "Microsoft.Databricks" : "register",
+          "Microsoft.DesktopVirtualization" : "register",
+          "Microsoft.DevTestLab" : "register",
+          "Microsoft.Devices" : "register",
+          "Microsoft.DocumentDB" : "register",
+          "Microsoft.EventGrid" : "register",
+          "Microsoft.EventHub" : "register",
+          "Microsoft.Features" : "register",
+          "Microsoft.GuestConfiguration" : "register",
+          "Microsoft.HDInsight" : "register",
+          "Microsoft.HealthcareApis" : "register",
+          "Microsoft.KeyVault" : "register",
+          "Microsoft.Kusto" : "register",
+          "Microsoft.Logic" : "register",
+          "Microsoft.MachineLearningServices" : "register",
+          "Microsoft.Maintenance" : "register",
+          "Microsoft.ManagedIdentity" : "register",
+          "Microsoft.ManagedServices" : "register",
+          "Microsoft.Management" : "register",
+          "Microsoft.Maps" : "register",
+          "Microsoft.MarketplaceOrdering" : "register",
+          "Microsoft.Network" : "register",
+          "Microsoft.NotificationHubs" : "register",
+          "Microsoft.OperationalInsights" : "register",
+          "Microsoft.OperationsManagement" : "register",
+          "Microsoft.PolicyInsights" : "register",
+          "Microsoft.Portal" : "register",
+          "Microsoft.PowerBIDedicated" : "register",
+          "Microsoft.RecoveryServices" : "register",
+          "Microsoft.Relay" : "register",
+          "Microsoft.ResourceGraph" : "register",
+          "Microsoft.ResourceIntelligence" : "register",
+          "RegistrationFree" : "register",
+          "Microsoft.ResourceNotifications" : "register",
+          "Microsoft.Resources" : "register",
+          "Microsoft.Search" : "register",
+          "Microsoft.Security" : "register",
+          "Microsoft.SecurityInsights" : "register",
+          "Microsoft.SerialConsole" : "register",
+          "Microsoft.ServiceBus" : "register",
+          "Microsoft.ServiceFabric" : "register",
+          "Microsoft.SignalRService" : "register",
+          "Microsoft.Sql" : "register",
+          "Microsoft.Storage" : "register",
+          "Microsoft.StreamAnalytics" : "register",
+          "Microsoft.Web" : "register",
+          "Microsoft.Workloads" : "register",
+          "microsoft.insights" : "register",
+          "microsoft.support" : "register"
+        }
+    },
+    "subscriptionAliasEnabled": {
+      "value": true
+    },
+    "subscriptionAliasName": {
+      "value": "MYFIRM4-SECURITY-SUB-001"
+    },
+    "subscriptionBillingScope": {
+      "value": "/providers/Microsoft.Billing/billingAccounts/cdae2983-75a1-54ac-87d9-1fb3e272c8ad:134a8b88-367c-436a-af11-0781946bdce9_2019-05-31/billingProfiles/QHK6-GO27-BG7-PGB/invoiceSections/3LA3-FCPK-PJA-PGB"
+    },
+    "subscriptionDisplayName": {
+      "value": "MYFIRM4-SECURITY-SUB-001"
+    },
+    "subscriptionManagementGroupAssociationEnabled": {
+      "value": true
+    },
+    "subscriptionManagementGroupId": {
+      "value": "MYFIRM4-Platform-Security-MG"
+    },
+    "subscriptionTags": {
+      "value": {
+        "namePrefix": "Owner",
+        "serviceShort": "ravi.vishnubhotla@outlook.com"
+      }
+    },
+    "subscriptionWorkload": {
+      "value": "Production"
+    }
+  }
+}
+
+
+
+
+
