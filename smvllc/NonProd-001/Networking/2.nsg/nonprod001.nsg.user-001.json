@@ -3,7 +3,7 @@
   "contentVersion": "1.0.0.0",
   "parameters": {
     "name": {
-      "value": "smvllc-use2-nonprod-nsg-app-int-001"
+      "value": "smvllc-use2-nonprod-nsg-user-001"
     },
     "location": {
       "value": "eastus2"
