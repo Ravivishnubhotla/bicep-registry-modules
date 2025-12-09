@@ -1,0 +1,24 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "addressPrefixes": {
+      "value": [
+        "10.251.0.0/18"
+      ]
+    },
+    "name": {
+      "value": "smvllc-use2-nonprod-vnet-core-001"
+    },
+    "location": {
+      "value": "eastus2"
+    },
+    "tags": {
+      "value": {
+        "Domain": "Infrastructure",
+        "Domain-Owner": "ravi.vishnubhotla2@gmail.com",
+        "LifeCycle": "Non-Prod"
+        }
+    }
+  }
+}

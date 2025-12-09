@@ -1,0 +1,42 @@
+
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "name": {
+      "value": "smvllc-use2-nonprod-snet-mgmt-001"
+    },
+    "virtualNetworkName": {
+      "value": "smvllc-use2-nonprod-vnet-mgmt-001"
+    },
+    "addressPrefix": {
+      "value": "10.251.72.0/23"
+    },
+    "privateEndpointNetworkPolicies": {
+      "value": "Disabled"
+    },
+    "privateLinkServiceNetworkPolicies": {
+      "value": "Disabled"
+    },
+    "serviceEndpoints": {
+      "value": [
+        "Microsoft.Storage",
+        "Microsoft.Sql",
+        "Microsoft.ContainerRegistry",
+        "Microsoft.KeyVault",
+        "Microsoft.ServiceBus",
+        "Microsoft.Web"
+
+      ]
+    },
+    "networkSecurityGroupResourceId": {
+      "value": "/subscriptions/bfdb0b7b-eca3-4d65-bd5a-eae90b18d813/resourceGroups/smvllc-use2-nonprod-spoke-rgp01/providers/Microsoft.Network/networkSecurityGroups/smvllc-use2-nonprod-nsg-mgmt-001"
+    },
+    "routeTableResourceId": {
+      "value": "/subscriptions/bfdb0b7b-eca3-4d65-bd5a-eae90b18d813/resourceGroups/smvllc-use2-nonprod-spoke-rgp01/providers/Microsoft.Network/routeTables/smvllc-use2-nonprod-rt-mgmt-001"
+    },
+    "enableTelemetry": {
+      "value": true
+    }
+  }
+}

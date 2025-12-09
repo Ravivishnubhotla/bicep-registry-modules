@@ -1,0 +1,30 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "name": {
+      "value": "smvllc-use2-nonprod-vnet-core-001_mgmt-001_peering"
+    },
+    "localVnetName": {
+      "value": "smvllc-use2-nonprod-vnet-core-001"
+    },
+    "remoteVirtualNetworkResourceId": {
+      "value": "/subscriptions/bfdb0b7b-eca3-4d65-bd5a-eae90b18d813/resourceGroups/smvllc-use2-nonprod-spoke-rgp01/providers/Microsoft.Network/virtualNetworks/smvllc-use2-nonprod-vnet-mgmt-001"
+    },
+    "allowForwardedTraffic": {
+      "value": true
+    },
+    "allowGatewayTransit": {
+      "value": false
+    },
+    "allowVirtualNetworkAccess": {
+      "value": true
+    },
+    "doNotVerifyRemoteGateways": {
+      "value": true
+    },
+    "useRemoteGateways": {
+      "value": false
+    }
+  }
+}
