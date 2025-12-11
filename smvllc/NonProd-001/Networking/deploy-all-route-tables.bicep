@@ -27,16 +27,6 @@ module routeTableCoreAppExt 'br/public:avm/res/network/route-table:0.5.0' = {
     name: '${namePrefix}-${environmentCode}-${environmentType}-rt-app-ext-001'
     location: resourceGroup().location
     tags: tags
-    routes: [
-      {
-        name: 'DEFAULT_FIREWALL'
-        properties: {
-          addressPrefix: '0.0.0.0/0'
-          nextHopType: 'VirtualAppliance'
-          nextHopIpAddress: firewallipaddress
-        }
-      }
-    ]
   }
 }
 
@@ -46,16 +36,6 @@ module routeTableCoreAppInt 'br/public:avm/res/network/route-table:0.5.0' = {
     name: '${namePrefix}-${environmentCode}-${environmentType}-rt-app-int-001'
     location: resourceGroup().location
     tags: tags
-    routes: [
-      {
-        name: 'DEFAULT_FIREWALL'
-        properties: {
-          addressPrefix: '0.0.0.0/0'
-          nextHopType: 'VirtualAppliance'
-          nextHopIpAddress: firewallipaddress
-        }
-      }
-    ]
   }
 }
 
@@ -65,16 +45,6 @@ module routeTableCoreDb 'br/public:avm/res/network/route-table:0.5.0' = {
     name: '${namePrefix}-${environmentCode}-${environmentType}-rt-db-001'
     location: resourceGroup().location
     tags: tags
-    routes: [
-      {
-        name: 'DEFAULT_FIREWALL'
-        properties: {
-          addressPrefix: '0.0.0.0/0'
-          nextHopType: 'VirtualAppliance'
-          nextHopIpAddress: firewallipaddress
-        }
-      }
-    ]
   }
 }
 
@@ -84,16 +54,6 @@ module routeTableMgmt 'br/public:avm/res/network/route-table:0.5.0' = {
     name: '${namePrefix}-${environmentCode}-${environmentType}-rt-mgmt-001'
     location: resourceGroup().location
     tags: tags
-    routes: [
-      {
-        name: 'DEFAULT_FIREWALL'
-        properties: {
-          addressPrefix: '0.0.0.0/0'
-          nextHopType: 'VirtualAppliance'
-          nextHopIpAddress: firewallipaddress
-        }
-      }
-    ]
   }
 }
 
@@ -103,16 +63,6 @@ module routeTablePep 'br/public:avm/res/network/route-table:0.5.0' = {
     name: '${namePrefix}-${environmentCode}-${environmentType}-rt-pep-001'
     location: resourceGroup().location
     tags: tags
-    routes: [
-      {
-        name: 'DEFAULT_FIREWALL'
-        properties: {
-          addressPrefix: '0.0.0.0/0'
-          nextHopType: 'VirtualAppliance'
-          nextHopIpAddress: firewallipaddress
-        }
-      }
-    ]
   }
 }
 
@@ -122,15 +72,5 @@ module routeTableUser 'br/public:avm/res/network/route-table:0.5.0' = {
     name: '${namePrefix}-${environmentCode}-${environmentType}-rt-user-001'
     location: resourceGroup().location
     tags: tags
-    routes: [
-      {
-        name: 'DEFAULT_FIREWALL'
-        properties: {
-          addressPrefix: '0.0.0.0/0'
-          nextHopType: 'VirtualAppliance'
-          nextHopIpAddress: firewallipaddress
-        }
-      }
-    ]
   }
 }

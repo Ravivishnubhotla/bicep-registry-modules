@@ -23,6 +23,8 @@ var vnetNames = {
   core: '${namingConvention}-vnet-core-001'
   mgmt: '${namingConvention}-vnet-mgmt-001'
   user: '${namingConvention}-vnet-user-001'
+  shared: '${namingConvention}-vnet-shared-001'
+  sharedExt: '${namingConvention}-vnet-shared-ext-001'
 }
 
 // NSG names (must match those created by the NSG module)
@@ -33,6 +35,9 @@ var nsgNames = {
   mgmt: '${namingConvention}-nsg-mgmt-001'
   pep: '${namingConvention}-nsg-pep-001'
   user: '${namingConvention}-nsg-user-001'
+  shared: '${namingConvention}-nsg-shared-001'
+  sharedPep: '${namingConvention}-nsg-shared-pep-001'
+  sharedExt: '${namingConvention}-nsg-shared-ext-001'
 }
 
 // Route table names (must match route table module)
@@ -43,6 +48,9 @@ var rtNames = {
   mgmt: '${namingConvention}-rt-mgmt-001'
   pep: '${namingConvention}-rt-pep-001'
   user: '${namingConvention}-rt-user-001'
+  shared: '${namingConvention}-rt-shared-001'
+  sharedPep: '${namingConvention}-rt-shared-pep-001'
+  sharedExt: '${namingConvention}-rt-shared-ext-001'
 }
 
 // Subnet configurations
@@ -50,7 +58,7 @@ var subnetConfigs = {
   coreAppExt: {
     name: '${namingConvention}-snet-app-ext-001'
     vnet: 'core'
-    addressPrefix: '10.251.0.0/24'
+    addressPrefix: '10.252.2.0/24'
     serviceEndpoints: [
       'Microsoft.Storage'
       'Microsoft.KeyVault'
@@ -64,7 +72,7 @@ var subnetConfigs = {
   coreAppInt: {
     name: '${namingConvention}-snet-app-int-001'
     vnet: 'core'
-    addressPrefix: '10.251.1.0/24'
+    addressPrefix: '10.252.0.0/24'
     serviceEndpoints: [
       'Microsoft.Storage'
       'Microsoft.KeyVault'
@@ -78,7 +86,7 @@ var subnetConfigs = {
   coreDb: {
     name: '${namingConvention}-snet-db-001'
     vnet: 'core'
-    addressPrefix: '10.251.2.0/24'
+    addressPrefix: '10.252.4.0/24'
     serviceEndpoints: ['Microsoft.Storage', 'Microsoft.KeyVault', 'Microsoft.Sql']
     nsg: 'coreDb'
     rt: 'coreDb'
@@ -86,7 +94,7 @@ var subnetConfigs = {
   mgmtMgmt: {
     name: '${namingConvention}-snet-mgmt-001'
     vnet: 'mgmt'
-    addressPrefix: '10.251.72.0/24'
+    addressPrefix: '10.252.72.0/24'
     serviceEndpoints: ['Microsoft.Storage', 'Microsoft.KeyVault']
     nsg: 'mgmt'
     rt: 'mgmt'
@@ -94,7 +102,7 @@ var subnetConfigs = {
   mgmtPep: {
     name: '${namingConvention}-snet-pep-001'
     vnet: 'mgmt'
-    addressPrefix: '10.251.80.0/24'
+    addressPrefix: '10.252.80.0/24'
     serviceEndpoints: ['Microsoft.Storage']
     nsg: 'pep'
     rt: 'pep'
@@ -102,10 +110,33 @@ var subnetConfigs = {
   userUser: {
     name: '${namingConvention}-snet-user-001'
     vnet: 'user'
-    addressPrefix: '10.251.128.0/24'
+    addressPrefix: '10.252.64.0/22'
     serviceEndpoints: ['Microsoft.Storage', 'Microsoft.KeyVault']
     nsg: 'user'
     rt: 'user'
+  }
+  shared: {
+    name: '${namingConvention}-snet-shared-001'
+    vnet: 'shared'
+    addressPrefix: '10.252.68.0/22'
+    serviceEndpoints: ['Microsoft.Storage', 'Microsoft.KeyVault']
+    nsg: 'shared'
+    rt: 'shared'
+  }
+  sharedPep: {
+    name: '${namingConvention}-snet-shared-pep-001'
+    vnet: 'shared'
+    addressPrefix: '10.252.90.0/24'
+    serviceEndpoints: ['Microsoft.Storage', 'Microsoft.KeyVault']
+    nsg: 'sharedPep'
+    rt: 'sharedPep'
+  }
+  sharedExt: {
+    name: '${namingConvention}-snet-shared-ext-001'
+    vnet: 'sharedExt'
+    addressPrefix: '10.252.100.0/24'
+    nsg: 'sharedExt'
+    rt: 'sharedExt'
   }
 }
 
@@ -175,6 +206,40 @@ module subnetMgmtPep 'br/public:avm/res/network/virtual-network/subnet:0.1.3' = 
     serviceEndpoints: subnetConfigs.mgmtPep.serviceEndpoints
   }
 }
+module subnetShared 'br/public:avm/res/network/virtual-network/subnet:0.1.3' = {
+  name: 'subnet-shared'
+  params: {
+    name: subnetConfigs.shared.name
+    virtualNetworkName: vnetNames.shared
+    addressPrefix: subnetConfigs.shared.addressPrefix
+    networkSecurityGroupResourceId: resourceId('Microsoft.Network/networkSecurityGroups', nsgNames.shared)
+    routeTableResourceId: resourceId('Microsoft.Network/routeTables', rtNames.shared)
+    serviceEndpoints: subnetConfigs.shared.serviceEndpoints
+  }
+}
+
+module subnetSharedExt 'br/public:avm/res/network/virtual-network/subnet:0.1.3' = {
+  name: 'subnet-shared-ext'
+  params: {
+    name: subnetConfigs.sharedExt.name
+    virtualNetworkName: vnetNames.sharedExt
+    addressPrefix: subnetConfigs.sharedExt.addressPrefix
+    networkSecurityGroupResourceId: resourceId('Microsoft.Network/networkSecurityGroups', nsgNames.sharedExt)
+    routeTableResourceId: resourceId('Microsoft.Network/routeTables', rtNames.sharedExt)
+  }
+}
+
+module subnetSharedPep 'br/public:avm/res/network/virtual-network/subnet:0.1.3' = {
+  name: 'subnet-shared-pep'
+  params: {
+    name: subnetConfigs.sharedPep.name
+    virtualNetworkName: vnetNames.shared
+    addressPrefix: subnetConfigs.sharedPep.addressPrefix
+    networkSecurityGroupResourceId: resourceId('Microsoft.Network/networkSecurityGroups', nsgNames.sharedPep)
+    routeTableResourceId: resourceId('Microsoft.Network/routeTables', rtNames.sharedPep)
+    serviceEndpoints: subnetConfigs.sharedPep.serviceEndpoints
+  }
+}
 
 module subnetUserUser 'br/public:avm/res/network/virtual-network/subnet:0.1.3' = {
   name: 'subnet-user-user'
@@ -216,5 +281,17 @@ output deployedSubnets object = {
   userUser: {
     resourceId: subnetUserUser.outputs.resourceId
     name: subnetUserUser.outputs.name
+  }
+  shared: {
+    resourceId: subnetShared.outputs.resourceId
+    name: subnetShared.outputs.name
+  }
+  sharedExt: {
+    resourceId: subnetSharedExt.outputs.resourceId
+    name: subnetSharedExt.outputs.name
+  }
+  sharedPep: {
+    resourceId: subnetSharedPep.outputs.resourceId
+    name: subnetSharedPep.outputs.name
   }
 }

@@ -1,0 +1,24 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "name": { "value": "smvllc-use2-prod-vnet-user-001" },
+    "location": { "value": "eastus2" },
+    "addressPrefixes": { "value": [ "10.10.0.0/16" ] },
+    "subnets": {
+      "value": [
+        {
+          "name": "user-subnet",
+          "addressPrefix": "10.10.1.0/24"
+        }
+      ]
+    },
+    "tags": {
+      "value": {
+        "Domain": "Networking",
+        "Domain-Owner": "ravi.vishnubhotla2@gmail.com",
+        "LifeCycle": "Prod"
+      }
+    }
+  }
+}

@@ -8,7 +8,7 @@ param namePrefix string
 param environmentCode string = 'use2'
 
 @description('Optional. Environment type (e.g., nonprod, prod).')
-param environmentType string = 'nonprod'
+param environmentType string = 'prod'
 
 @description('Optional. Firewall IP address for route tables.')
 param firewallipaddress string = '0.0.0.0'
@@ -17,7 +17,7 @@ param firewallipaddress string = '0.0.0.0'
 param tags object = {
   Domain: 'Infrastructure'
   DomainOwner: 'ravi.vishnubhotla2@gmail.com'
-  LifeCycle: 'Non-Prod'
+  LifeCycle: 'Prod'
 }
 
 // Deploy all route tables
@@ -27,16 +27,6 @@ module routeTableCoreAppExt 'br/public:avm/res/network/route-table:0.5.0' = {
     name: '${namePrefix}-${environmentCode}-${environmentType}-rt-app-ext-001'
     location: resourceGroup().location
     tags: tags
-    routes: [
-      {
-        name: 'DEFAULT_FIREWALL'
-        properties: {
-          addressPrefix: '0.0.0.0/0'
-          nextHopType: 'VirtualAppliance'
-          nextHopIpAddress: firewallipaddress
-        }
-      }
-    ]
   }
 }
 
@@ -46,16 +36,6 @@ module routeTableCoreAppInt 'br/public:avm/res/network/route-table:0.5.0' = {
     name: '${namePrefix}-${environmentCode}-${environmentType}-rt-app-int-001'
     location: resourceGroup().location
     tags: tags
-    routes: [
-      {
-        name: 'DEFAULT_FIREWALL'
-        properties: {
-          addressPrefix: '0.0.0.0/0'
-          nextHopType: 'VirtualAppliance'
-          nextHopIpAddress: firewallipaddress
-        }
-      }
-    ]
   }
 }
 
@@ -65,16 +45,6 @@ module routeTableCoreDb 'br/public:avm/res/network/route-table:0.5.0' = {
     name: '${namePrefix}-${environmentCode}-${environmentType}-rt-db-001'
     location: resourceGroup().location
     tags: tags
-    routes: [
-      {
-        name: 'DEFAULT_FIREWALL'
-        properties: {
-          addressPrefix: '0.0.0.0/0'
-          nextHopType: 'VirtualAppliance'
-          nextHopIpAddress: firewallipaddress
-        }
-      }
-    ]
   }
 }
 
@@ -84,16 +54,6 @@ module routeTableMgmt 'br/public:avm/res/network/route-table:0.5.0' = {
     name: '${namePrefix}-${environmentCode}-${environmentType}-rt-mgmt-001'
     location: resourceGroup().location
     tags: tags
-    routes: [
-      {
-        name: 'DEFAULT_FIREWALL'
-        properties: {
-          addressPrefix: '0.0.0.0/0'
-          nextHopType: 'VirtualAppliance'
-          nextHopIpAddress: firewallipaddress
-        }
-      }
-    ]
   }
 }
 
@@ -103,16 +63,6 @@ module routeTablePep 'br/public:avm/res/network/route-table:0.5.0' = {
     name: '${namePrefix}-${environmentCode}-${environmentType}-rt-pep-001'
     location: resourceGroup().location
     tags: tags
-    routes: [
-      {
-        name: 'DEFAULT_FIREWALL'
-        properties: {
-          addressPrefix: '0.0.0.0/0'
-          nextHopType: 'VirtualAppliance'
-          nextHopIpAddress: firewallipaddress
-        }
-      }
-    ]
   }
 }
 
@@ -122,15 +72,32 @@ module routeTableUser 'br/public:avm/res/network/route-table:0.5.0' = {
     name: '${namePrefix}-${environmentCode}-${environmentType}-rt-user-001'
     location: resourceGroup().location
     tags: tags
-    routes: [
-      {
-        name: 'DEFAULT_FIREWALL'
-        properties: {
-          addressPrefix: '0.0.0.0/0'
-          nextHopType: 'VirtualAppliance'
-          nextHopIpAddress: firewallipaddress
-        }
-      }
-    ]
+  }
+}
+
+module routeTableShared 'br/public:avm/res/network/route-table:0.5.0' = {
+  name: 'rt-shared-001'
+  params: {
+    name: '${namePrefix}-${environmentCode}-${environmentType}-rt-shared-001'
+    location: resourceGroup().location
+    tags: tags
+  }
+}
+
+module routeTableSharedPep 'br/public:avm/res/network/route-table:0.5.0' = {
+  name: 'rt-shared-pep-001'
+  params: {
+    name: '${namePrefix}-${environmentCode}-${environmentType}-rt-shared-pep-001'
+    location: resourceGroup().location
+    tags: tags
+  }
+}
+
+module routeTableSharedExt 'br/public:avm/res/network/route-table:0.5.0' = {
+  name: 'rt-shared-ext-001'
+  params: {
+    name: '${namePrefix}-${environmentCode}-${environmentType}-rt-shared-ext-001'
+    location: resourceGroup().location
+    tags: tags
   }
 }

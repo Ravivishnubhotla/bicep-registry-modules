@@ -18,7 +18,7 @@
       "value": {
         "Domain": "Infrastructure",
         "DomainOwner": "ravi.vishnubhotla2@gmail.com",
-        "LifeCycle": "Non-Prod"
+        "LifeCycle": "NonProd"
       }
     }
   }

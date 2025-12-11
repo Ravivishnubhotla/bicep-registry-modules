@@ -31,6 +31,9 @@ var nsgNames = {
   mgmt: '${namingConvention}-nsg-mgmt-001'
   pep: '${namingConvention}-nsg-pep-001'
   user: '${namingConvention}-nsg-user-001'
+  shared: '${namingConvention}-nsg-shared-001'
+  sharedPep: '${namingConvention}-nsg-shared-pep-001'
+  sharedExt: '${namingConvention}-nsg-shared-ext-001'
 }
 
 // ============================================================================
@@ -98,6 +101,63 @@ module nsgUser 'br/public:avm/res/network/network-security-group:0.5.2' = {
   }
 }
 
+module nsgShared 'br/public:avm/res/network/network-security-group:0.5.2' = {
+  name: 'nsg-shared'
+  params: {
+    name: nsgNames.shared
+    location: location
+    tags: tags
+    securityRules: []
+  }
+}
+
+module nsgSharedPep 'br/public:avm/res/network/network-security-group:0.5.2' = {
+  name: 'nsg-shared-pep'
+  params: {
+    name: nsgNames.sharedPep
+    location: location
+    tags: tags
+    securityRules: []
+  }
+}
+
+module nsgSharedExt 'br/public:avm/res/network/network-security-group:0.5.2' = {
+  name: 'nsg-shared-ext'
+  params: {
+    name: nsgNames.sharedExt
+    location: location
+    tags: tags
+    securityRules: [
+      {
+        name: 'Allow-RDP-Internet'
+        properties: {
+          protocol: 'Tcp'
+          sourcePortRange: '*'
+          destinationPortRange: '3389'
+          sourceAddressPrefix: '0.0.0.0/0'
+          destinationAddressPrefix: '*'
+          access: 'Allow'
+          priority: 100
+          direction: 'Inbound'
+        }
+      }
+      {
+        name: 'Deny-All-Inbound'
+        properties: {
+          protocol: '*'
+          sourcePortRange: '*'
+          destinationPortRange: '*'
+          sourceAddressPrefix: '*'
+          destinationAddressPrefix: '*'
+          access: 'Deny'
+          priority: 4096
+          direction: 'Inbound'
+        }
+      }
+    ]
+  }
+}
+
 // ============================================================================
 // OUTPUTS
 // ============================================================================
@@ -126,5 +186,17 @@ output deployedNetworkSecurityGroups object = {
   user: {
     resourceId: nsgUser.outputs.resourceId
     name: nsgUser.outputs.name
+  }
+  shared: {
+    resourceId: nsgShared.outputs.resourceId
+    name: nsgShared.outputs.name
+  }
+  sharedPep: {
+    resourceId: nsgSharedPep.outputs.resourceId
+    name: nsgSharedPep.outputs.name
+  }
+  sharedExt: {
+    resourceId: nsgSharedExt.outputs.resourceId
+    name: nsgSharedExt.outputs.name
   }
 }

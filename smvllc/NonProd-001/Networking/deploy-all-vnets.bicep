@@ -27,23 +27,15 @@ var namingConvention = '${namePrefix}-${environmentCode}-${environmentType}'
 var vnetConfigs = {
   core: {
     name: '${namingConvention}-vnet-core-001'
-    addressPrefixes: ['10.252.0.0/18']
+    addressPrefixes: ['10.251.0.0/18']
   }
   mgmt: {
     name: '${namingConvention}-vnet-mgmt-001'
-    addressPrefixes: ['10.252.72.0/22', '10.252.80.0/24']
+    addressPrefixes: ['10.251.72.0/22', '10.251.80.0/24']
   }
   user: {
     name: '${namingConvention}-vnet-user-001'
-    addressPrefixes: ['10.252.64.0/22']
-  }
-  shared: {
-    name: '${namingConvention}-vnet-shared-001'
-    addressPrefixes: ['10.252.68.0/22', '10.252.88.0/22']
-  }
-  sharedExt: {
-    name: '${namingConvention}-vnet-shared-ext-001'
-    addressPrefixes: ['10.252.100.0/22']
+    addressPrefixes: ['10.251.128.0/18']
   }
 }
 
@@ -84,25 +76,6 @@ module vnetUser 'br/public:avm/res/network/virtual-network:0.7.2' = {
   }
 }
 
-module vnetShared 'br/public:avm/res/network/virtual-network:0.7.2' = {
-  name: 'vnet-shared'
-  params: {
-    name: vnetConfigs.shared.name
-    location: location
-    tags: tags
-    addressPrefixes: vnetConfigs.shared.addressPrefixes
-  }
-}
-
-module vnetSharedExt 'br/public:avm/res/network/virtual-network:0.7.2' = {
-  name: 'vnet-shared-ext'
-  params: {
-    name: vnetConfigs.sharedExt.name
-    location: location
-    tags: tags
-    addressPrefixes: vnetConfigs.sharedExt.addressPrefixes
-  }
-}
 // ============================================================================
 // OUTPUTS
 // ============================================================================
@@ -119,13 +92,5 @@ output deployedVirtualNetworks object = {
   user: {
     resourceId: vnetUser.outputs.resourceId
     name: vnetUser.outputs.name
-  }
-  shared: {
-    resourceId: vnetShared.outputs.resourceId
-    name: vnetShared.outputs.name
-  }
-  shartedExt: {
-    resourceId: vnetSharedExt.outputs.resourceId
-    name: vnetSharedExt.outputs.name
   }
 }

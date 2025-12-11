@@ -1,0 +1,32 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "deploymentName": { "value": "smvllc-use2-prod-vm-user-001-deploy" },
+    "location": { "value": "eastus2" },
+    "vmName": { "value": "smvllc-use2-prod-vm-user-001" },
+    "adminUsername": { "value": "azureuser" },
+    "adminPassword": { "value": "ChangeMe!123" },
+    "vmSize": { "value": "Standard_B2ms" },
+    "image": {
+      "value": {
+        "publisher": "MicrosoftWindowsServer",
+        "offer": "WindowsServer",
+        "sku": "2019-Datacenter",
+        "version": "latest"
+      }
+    },
+    "vnetName": { "value": "smvllc-use2-prod-vnet-user-001" },
+    "subnetName": { "value": "user-subnet" },
+    "nsgName": { "value": "smvllc-use2-prod-nsg-user-001" },
+    "publicIPAddressName": { "value": "smvllc-use2-prod-vm-user-001-pip" },
+    "networkInterfaceName": { "value": "smvllc-use2-prod-vm-user-001-nic" },
+    "tags": {
+      "value": {
+        "Domain": "Compute",
+        "Domain-Owner": "ravi.vishnubhotla2@gmail.com",
+        "LifeCycle": "Prod"
+      }
+    }
+  }
+}
