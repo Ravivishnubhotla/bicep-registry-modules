@@ -3,7 +3,7 @@
   "contentVersion": "1.0.0.0",
   "parameters": {
     "name": {
-      "value": "smvllc-use2-prod-vnet-shared-int-001_prod-core-001_peering"
+      "value": "smvllc-use2-prod-shared-int-001_prod-core-001_peering"
     },
     "localVnetName": {
       "value": "smvllc-use2-prod-vnet-shared-int-001"

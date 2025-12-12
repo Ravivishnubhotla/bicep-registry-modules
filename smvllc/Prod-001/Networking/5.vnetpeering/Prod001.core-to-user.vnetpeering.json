@@ -3,7 +3,7 @@
   "contentVersion": "1.0.0.0",
   "parameters": {
     "name": {
-      "value": "smvllc-use2-prod-vnet-core-001_user-001_peering"
+      "value": "smvllc-use2-prod-core-001_prod-user-001_peering"
     },
     "localVnetName": {
       "value": "smvllc-use2-prod-vnet-core-001"
