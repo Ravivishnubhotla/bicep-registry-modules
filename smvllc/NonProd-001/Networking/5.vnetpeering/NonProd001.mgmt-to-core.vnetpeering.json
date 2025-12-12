@@ -9,7 +9,7 @@
       "value": "smvllc-use2-nonprod-vnet-mgmt-001"
     },
     "remoteVirtualNetworkResourceId": {
-      "value": "/subscriptions/bfdb0b7b-eca3-4d65-bd5a-eae90b18d813/resourceGroups/smvllc-use2-nonprod-spoke-rgp01/providers/Microsoft.Network/virtualNetworks/smvllc-use2-nonprod-vnet-core-001"
+      "value": "/subscriptions/bfdb0b7b-eca3-4d65-bd5a-eae90b18d813/resourceGroups/smvllc-use2-nonprod-spoke-rgrp-001/providers/Microsoft.Network/virtualNetworks/smvllc-use2-nonprod-vnet-core-001"
     },
     "allowForwardedTraffic": {
       "value": true

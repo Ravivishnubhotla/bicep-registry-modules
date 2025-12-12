@@ -9,7 +9,7 @@
       "value": "smvllc-use2-nonprod-vnet-user-001"
     },
     "remoteVirtualNetworkResourceId": {
-      "value": "/subscriptions/76f61789-c9fe-4f0d-b98b-d7a27030ee3a/resourceGroups/smvllc-use2-connectivity-rgrp01/providers/Microsoft.Network/virtualNetworks/smvllc-hub-use2"
+      "value": "/subscriptions/76f61789-c9fe-4f0d-b98b-d7a27030ee3a/resourceGroups/smvllc-use2-hub-rgrp02/providers/Microsoft.Network/virtualNetworks/smvllc-hub-eastus2"
     },
     "allowForwardedTraffic": {
       "value": true

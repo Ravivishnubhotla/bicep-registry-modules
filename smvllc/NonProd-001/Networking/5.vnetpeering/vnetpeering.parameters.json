@@ -1,0 +1,173 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "remoteVirtualNetworks": {
+      "value": {
+        "gw": "/subscriptions/76f61789-c9fe-4f0d-b98b-d7a27030ee3a/resourceGroups/smvllc-use2-hub-rgrp01/providers/Microsoft.Network/virtualNetworks/smvllc-hub-eastus2",
+        "mgmt": "/subscriptions/bfdb0b7b-eca3-4d65-bd5a-eae90b18d813/resourceGroups/smvllc-use2-nonprod-spoke-rgrp-001/providers/Microsoft.Network/virtualNetworks/smvllc-use2-nonprod-vnet-mgmt-001",
+        "core": "/subscriptions/bfdb0b7b-eca3-4d65-bd5a-eae90b18d813/resourceGroups/smvllc-use2-nonprod-spoke-rgrp-001/providers/Microsoft.Network/virtualNetworks/smvllc-use2-nonprod-vnet-core-001",
+        "user": "/subscriptions/bfdb0b7b-eca3-4d65-bd5a-eae90b18d813/resourceGroups/smvllc-use2-nonprod-spoke-rgrp-001/providers/Microsoft.Network/virtualNetworks/smvllc-use2-nonprod-vnet-user-001",
+        "shared": "/subscriptions/857604bf-4cc2-4f6d-866d-17864752c510/resourceGroups/smvllc-use2-prod-spoke-rgrp-001/providers/Microsoft.Network/virtualNetworks/smvllc-use2-prod-vnet-shared-001",
+        "sharedExt": "/subscriptions/857604bf-4cc2-4f6d-866d-17864752c510/resourceGroups/smvllc-use2-prod-spoke-rgrp-001/providers/Microsoft.Network/virtualNetworks/smvllc-use2-prod-vnet-shared-ext-001"
+      }
+    },
+    "peerings": {
+      "value": [
+        {
+          "name": "smvllc-use2-nonprod-vnet-core-001_gw-001_peering",
+          "localVnetName": "smvllc-use2-nonprod-vnet-core-001",
+          "remoteVnetName": "gw",
+          "allowForwardedTraffic": true,
+          "allowGatewayTransit": false,
+          "allowVirtualNetworkAccess": true,
+          "doNotVerifyRemoteGateways": true,
+          "useRemoteGateways": false
+        },
+        {
+          "name": "smvllc-use2-nonprod-vnet-core-001_mgmt-001_peering",
+          "localVnetName": "smvllc-use2-nonprod-vnet-core-001",
+          "remoteVnetName": "mgmt",
+          "allowForwardedTraffic": true,
+          "allowGatewayTransit": false,
+          "allowVirtualNetworkAccess": true,
+          "doNotVerifyRemoteGateways": true,
+          "useRemoteGateways": false
+        },
+        {
+          "name": "smvllc-use2-nonprod-vnet-core-001_prod-shared-001_peering",
+          "localVnetName": "smvllc-use2-nonprod-vnet-core-001",
+          "remoteVnetName": "shared",
+          "allowForwardedTraffic": true,
+          "allowGatewayTransit": false,
+          "allowVirtualNetworkAccess": true,
+          "doNotVerifyRemoteGateways": true,
+          "useRemoteGateways": false
+        },
+        {
+          "name": "smvllc-use2-nonprod-vnet-core-001_prod-shared-ext-001_peering",
+          "localVnetName": "smvllc-use2-nonprod-vnet-core-001",
+          "remoteVnetName": "sharedExt",
+          "allowForwardedTraffic": true,
+          "allowGatewayTransit": false,
+          "allowVirtualNetworkAccess": true,
+          "doNotVerifyRemoteGateways": true,
+          "useRemoteGateways": false
+        },
+        {
+          "name": "smvllc-use2-nonprod-vnet-core-001_user-001_peering",
+          "localVnetName": "smvllc-use2-nonprod-vnet-core-001",
+          "remoteVnetName": "user",
+          "allowForwardedTraffic": true,
+          "allowGatewayTransit": false,
+          "allowVirtualNetworkAccess": true,
+          "doNotVerifyRemoteGateways": true,
+          "useRemoteGateways": false
+        },
+        {
+          "name": "smvllc-use2-nonprod-vnet-mgmt-001_core-001_peering",
+          "localVnetName": "smvllc-use2-nonprod-vnet-mgmt-001",
+          "remoteVnetName": "core",
+          "allowForwardedTraffic": true,
+          "allowGatewayTransit": false,
+          "allowVirtualNetworkAccess": true,
+          "doNotVerifyRemoteGateways": true,
+          "useRemoteGateways": false
+        },
+        {
+          "name": "smvllc-use2-nonprod-vnet-mgmt-001_gw-001_peering",
+          "localVnetName": "smvllc-use2-nonprod-vnet-mgmt-001",
+          "remoteVnetName": "gw",
+          "allowForwardedTraffic": true,
+          "allowGatewayTransit": false,
+          "allowVirtualNetworkAccess": true,
+          "doNotVerifyRemoteGateways": true,
+          "useRemoteGateways": false
+        },
+        {
+          "name": "smvllc-use2-nonprod-vnet-mgmt-001_prod-shared-001_peering",
+          "localVnetName": "smvllc-use2-nonprod-vnet-mgmt-001",
+          "remoteVnetName": "shared",
+          "allowForwardedTraffic": true,
+          "allowGatewayTransit": false,
+          "allowVirtualNetworkAccess": true,
+          "doNotVerifyRemoteGateways": true,
+          "useRemoteGateways": false
+        },
+        {
+          "name": "smvllc-use2-nonprod-vnet-mgmt-001_prod-shared-ext-001_peering",
+          "localVnetName": "smvllc-use2-nonprod-vnet-mgmt-001",
+          "remoteVnetName": "sharedExt",
+          "allowForwardedTraffic": true,
+          "allowGatewayTransit": false,
+          "allowVirtualNetworkAccess": true,
+          "doNotVerifyRemoteGateways": true,
+          "useRemoteGateways": false
+        },
+        {
+          "name": "smvllc-use2-nonprod-vnet-mgmt-001_user-001_peering",
+          "localVnetName": "smvllc-use2-nonprod-vnet-mgmt-001",
+          "remoteVnetName": "user",
+          "allowForwardedTraffic": true,
+          "allowGatewayTransit": false,
+          "allowVirtualNetworkAccess": true,
+          "doNotVerifyRemoteGateways": true,
+          "useRemoteGateways": false
+        },
+        {
+          "name": "smvllc-use2-nonprod-vnet-user-001_core-001_peering",
+          "localVnetName": "smvllc-use2-nonprod-vnet-user-001",
+          "remoteVnetName": "core",
+          "allowForwardedTraffic": true,
+          "allowGatewayTransit": false,
+          "allowVirtualNetworkAccess": true,
+          "doNotVerifyRemoteGateways": true,
+          "useRemoteGateways": false
+        },
+        {
+          "name": "smvllc-use2-nonprod-vnet-user-001_gw-001_peering",
+          "localVnetName": "smvllc-use2-nonprod-vnet-user-001",
+          "remoteVnetName": "gw",
+          "allowForwardedTraffic": true,
+          "allowGatewayTransit": false,
+          "allowVirtualNetworkAccess": true,
+          "doNotVerifyRemoteGateways": true,
+          "useRemoteGateways": false
+        },
+        {
+          "name": "smvllc-use2-nonprod-vnet-user-001_mgmt-001_peering",
+          "localVnetName": "smvllc-use2-nonprod-vnet-user-001",
+          "remoteVnetName": "mgmt",
+          "allowForwardedTraffic": true,
+          "allowGatewayTransit": false,
+          "allowVirtualNetworkAccess": true,
+          "doNotVerifyRemoteGateways": true,
+          "useRemoteGateways": false
+        },
+        {
+          "name": "smvllc-use2-nonprod-vnet-user-001_prod-shared-001_peering",
+          "localVnetName": "smvllc-use2-nonprod-vnet-user-001",
+          "remoteVnetName": "shared",
+          "allowForwardedTraffic": true,
+          "allowGatewayTransit": false,
+          "allowVirtualNetworkAccess": true,
+          "doNotVerifyRemoteGateways": true,
+          "useRemoteGateways": false
+        },
+        {
+          "name": "smvllc-use2-nonprod-vnet-user-001_prod-shared-ext-001_peering",
+          "localVnetName": "smvllc-use2-nonprod-vnet-user-001",
+          "remoteVnetName": "sharedExt",
+          "allowForwardedTraffic": true,
+          "allowGatewayTransit": false,
+          "allowVirtualNetworkAccess": true,
+          "doNotVerifyRemoteGateways": true,
+          "useRemoteGateways": false
+        }
+      ]
+    },
+    "enableTelemetry": {
+      "value": true
+    }
+  }
+}
