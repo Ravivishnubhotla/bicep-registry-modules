@@ -3,13 +3,13 @@
   "contentVersion": "1.0.0.0",
   "parameters": {
     "name": {
-      "value": "smvllc-use2-nonprod-vnet-mgmt-001_user-001_peering"
+      "value": "smvllc-use2-prod-vnet-core-001_gw-001_peering"
     },
     "localVnetName": {
-      "value": "smvllc-use2-nonprod-vnet-mgmt-001"
+      "value": "smvllc-use2-prod-vnet-core-001"
     },
     "remoteVirtualNetworkResourceId": {
-      "value": "/subscriptions/bfdb0b7b-eca3-4d65-bd5a-eae90b18d813/resourceGroups/smvllc-use2-nonprod-spoke-rgp01/providers/Microsoft.Network/virtualNetworks/smvllc-use2-nonprod-vnet-user-001"
+      "value": "/subscriptions/76f61789-c9fe-4f0d-b98b-d7a27030ee3a/resourceGroups/smvllc-use2-hub-rgrp02/providers/Microsoft.Network/virtualNetworks/smvllc-hub-eastus2"
     },
     "allowForwardedTraffic": {
       "value": true

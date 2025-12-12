@@ -56,19 +56,11 @@ All peerings use the following default settings:
 |------------|-------------|---------|
 | **Core** | Gateway (Hub) | Central routing and VPN termination |
 | **Core** | Management | Cross-tier management connectivity |
-| **Core** | User | Core-to-workload connectivity |
-| **Core** | Shared (Prod) | Access to production shared services |
-| **Core** | Shared-Ext (Prod) | Access to external jumpbox services |
-| **Management** | Core | Bidirectional management visibility |
-| **Management** | Gateway (Hub) | Management access via hub gateway |
+| **Core** | User | Core-to-workload connectivity ||
+| **Management** | Core | Bidirectional management visibility ||
 | **Management** | User | Cross-tier management connectivity |
-| **Management** | Shared (Prod) | Management access to prod shared services |
-| **Management** | Shared-Ext (Prod) | Management access to external services |
 | **User** | Core | Workload-to-core connectivity |
-| **User** | Gateway (Hub) | Workload routing via hub gateway |
 | **User** | Management | Workload access to management plane |
-| **User** | Shared (Prod) | Workload access to prod shared services |
-| **User** | Shared-Ext (Prod) | Workload access to external services |
 
 ## Deployment
 

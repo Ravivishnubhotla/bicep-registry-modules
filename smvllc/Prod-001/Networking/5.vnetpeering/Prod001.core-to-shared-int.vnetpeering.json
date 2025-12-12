@@ -1,0 +1,30 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "name": {
+      "value": "smvllc-use2-prod-vnet-core-001_prod-shared-int-001_peering"
+    },
+    "localVnetName": {
+      "value": "smvllc-use2-prod-vnet-core-001"
+    },
+    "remoteVirtualNetworkResourceId": {
+      "value": "/subscriptions/857604bf-4cc2-4f6d-866d-17864752c510/resourceGroups/smvllc-use2-prod-spoke-rgrp-001/providers/Microsoft.Network/virtualNetworks/smvllc-use2-prod-vnet-shared-int-001"
+    },
+    "allowForwardedTraffic": {
+      "value": true
+    },
+    "allowGatewayTransit": {
+      "value": false
+    },
+    "allowVirtualNetworkAccess": {
+      "value": true
+    },
+    "doNotVerifyRemoteGateways": {
+      "value": true
+    },
+    "useRemoteGateways": {
+      "value": false
+    }
+  }
+}
